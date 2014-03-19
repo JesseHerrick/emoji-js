@@ -12,5 +12,5 @@ var webpage = document.documentElement.innerHTML;
 
 for (var i = 0; i > emojiNames.length; i++) {
   var emojiName = ":" + emojiNames[i] + ":";
-  console.log(webpage.replace(emojiName, "<img alt='" + emojiName + "' src='" + emoji[emojiName] + "'>"));
+  document.documentElement.innerHTML = webpage.replace(emojiName, "<img alt='" + emojiName + "' src='" + emoji[emojiName] + "'>"));
 }
