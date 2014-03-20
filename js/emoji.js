@@ -901,6 +901,6 @@
     return _results;
   };
 
-  loadEmoji();
+  window.onload = loadEmoji();
 
 }).call(this);

@@ -18,4 +18,4 @@ loadEmoji = () ->
 		name = ":#{emoji}:"
 		document.body.innerHTML = document.body.innerHTML.replace(name, "<img src='#{Emoji.image_path + Emoji.name_to_path[emoji]}' alt='#{name}' class='emoji'>")
 
-loadEmoji()
+window.onload = loadEmoji()
