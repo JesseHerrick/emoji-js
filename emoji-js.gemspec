@@ -8,6 +8,5 @@ Gem::Specification.new do |s|
   s.email       = 'jessegrantherrick@gmail.com'
   s.files       = `git ls-files`.split
   s.executables << 'emoji-js'
-  s.require_paths << ["lib", "vendor"]
   s.homepage    = 'https://github.com/JesseHerrick/emoji-js'
 end
