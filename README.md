@@ -1,4 +1,4 @@
-# Emoji.JS
+# Emoji.JS :tada:
 
 Ever wanted to be able to write `:thumbsup:` and have :thumbsup: display on your blog? Me to. Let's make this happen...
 
