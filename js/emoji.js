@@ -896,7 +896,7 @@
       emoji = _ref[_i];
       _fn();
       name = ":" + emoji + ":";
-      _results.push(document.body.innerHTML = document.body.innerHTML.replace(name, "<img src='" + (Emoji.image_path + Emoji.name_to_path[emoji]) + "' alt='" + name + "' class='emoji'>"));
+      _results.push(document.body.innerHTML = document.body.innerHTML.replace(name, "<img src='" + (Emoji.image_path + Emoji.name_to_path[emoji]) + "' alt='" + name + "' class='emoji' height='25' width='25' align='absmiddle'>"));
     }
     return _results;
   };
