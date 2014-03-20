@@ -2,7 +2,7 @@
 
 # build coffee/js files
 coffee -c -o js/ coffee/emoji.coffee
-uglifyjs -c js/emoji.js -o js/emoji.min.js
+uglifyjs js/emoji.js -o js/emoji.min.js
 echo "Coffee/JavaScript built"
 
 # create tmp dir for archive
