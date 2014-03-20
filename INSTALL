@@ -1,0 +1,7 @@
+To install:
+
+1) Copy emoji.min.js to your project's JavaScript directory.
+2) Copy the emojis directory into your project.
+3) Append a script tag with emoji.min.js as a source to the END OF YOUR HTML FILE.
+
+It is IMPERITIVE that you append it to the end of your HTML file. Otherwise, the script will be loaded before the DOM.
