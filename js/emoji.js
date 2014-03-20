@@ -5,7 +5,7 @@
   Emoji = {};
 
   Emoji.name_to_path = {
-    "+1": "+1.png",
+    "+1.png": "+1.png",
     "-1": "-1.png",
     "100": "100.png",
     "1234": "1234.png",

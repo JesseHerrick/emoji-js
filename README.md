@@ -3,4 +3,4 @@
 Emoji like GitHub!
 
 ## Getting Started
-``
+### Bower
