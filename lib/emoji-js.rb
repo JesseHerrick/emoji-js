@@ -15,24 +15,21 @@ module EmojiJS
     def coffeescript
       @coffee_path = "#{@vendor_path}/coffee"
 
-      # get image path
-      print 'Emoji image path: (default: "/graphics/") '
-      @image_path = gets.chomp
-      @image_path = "/graphics/" if @image_path.empty?
-
       # coffee_grounds = modified coffescript
       @coffee_grounds = replace_in_file("#{@coffee_path}/emoji.coffee", %q{Emoji.image_path = "/graphics/" # customize to your liking}, "Emoji.image_path = \"#{@image_path}\"")
 
-      @generated_js = CoffeeScript.compile(coffee_grounds)
+      @generated_js = CoffeeScript.compile(@coffee_grounds)
       @ugly_js = uglify @generated_js
 
       # get js dir
       print %q{Your project's JavaScript directory: (default: "js/") }
       js_dir = gets.chomp
       js_dir = "js" if js_dir.empty?
+      js_dir = "#{@project_path}/#{js_dir}"
 
       # write emoji.min.js
-      FileUtils.cd("#{@project_path}/js_dir")
+      FileUtils.mkdir(js_dir) unless Dir.exists? js_dir
+      FileUtils.cd(js_dir)
       write_to_file "emoji.min.js", @uglify
       FileUtils.cd("../")
     end
@@ -44,13 +41,17 @@ module EmojiJS
 
     # copy emoji images to image path
     def emoji_images
-      puts "Using emoji image path: '#{@image_path}'"
-      FileUtils.mkdir(@image_path)
+      # get image path
+      print 'Emoji graphics path: (default: "graphics/") '
+      @emoji_path = gets.chomp
+      @emoji_path = "/graphics/" if @emoji_path.empty?
 
-      @image_path = validate_image_path(@image_path)
+      @emoji_path = validate_image_path(@emoji_path)
+      FileUtils.mkdir(@emoji_path) unless Dir.exists? @emoji_path
+
       @emojis = Dir.glob("#{@vendor_path}/graphics/*").map(&File.method(:realpath))
 
-      FileUtils.cp(@emojis, @image_path)
+      FileUtils.cp(@emojis, @emoji_path)
     end
 
     private
@@ -71,7 +72,8 @@ module EmojiJS
     def validate_image_path(path)
       path = "/#{path}" unless path[0] == "/"
       path = @project_path + path
-      raise "Not a real path" if File.directory? path
+      # raise "Not a real path" if File.directory? path
+      return path
     end
   end
 end
