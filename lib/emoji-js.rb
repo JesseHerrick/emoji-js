@@ -1,4 +1,5 @@
 require "coffee-script"
+require "colorize"
 require "fileutils"
 require "uglifier"
 
@@ -30,6 +31,7 @@ module EmojiJS
       print %q{Your project's JavaScript directory: (default: "js/") }
       js_dir = gets.chomp
       js_dir = "js" if js_dir.empty?
+      @orig_js_dir = js_dir
       js_dir = "#{@project_path}/#{js_dir}"
 
       # write emoji.min.js
@@ -51,6 +53,14 @@ module EmojiJS
       @emojis = Dir.glob("#{@vendor_path}/graphics/*").map(&File.method(:realpath))
 
       FileUtils.cp(@emojis, @emoji_path)
+    end
+
+    # display when successful
+    def success
+      puts "Emoji.JS successfully added to your project."
+      print "Now add: '".green
+      print "<script src=\"/#{@orig_js_dir}/emoji.min.js\"></script>".blue
+      print "' to the END of your HTML file\n".green
     end
 
     private

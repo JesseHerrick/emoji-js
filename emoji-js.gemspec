@@ -9,4 +9,12 @@ Gem::Specification.new do |s|
   s.files       = `git ls-files`.split
   s.executables << 'emoji-js'
   s.homepage    = 'https://github.com/JesseHerrick/emoji-js'
+
+  s.add_runtime_dependency 'coffee-script'
+  s.add_runtime_dependency 'colorize'
+  s.add_runtime_dependency 'fileutils'
+  s.add_runtime_dependency 'uglifier'
+
+  s.add_development_dependency 'bundler'
+  s.add_development_dependency 'rake'
 end

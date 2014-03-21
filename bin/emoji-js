@@ -11,3 +11,4 @@ project_path = Dir.pwd if project_path.empty?
 emoji = EmojiJS::Generate.new(project_path)
 emoji.coffeescript
 emoji.emoji_images
+emoji.success

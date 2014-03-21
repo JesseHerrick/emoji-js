@@ -1,0 +1,34 @@
+PATH
+  remote: .
+  specs:
+    emoji-js (0.1.0)
+      coffee-script
+      colorizer
+      fileutils
+      uglifier
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.7.0)
+    colorizer (0.0.2)
+    execjs (2.0.2)
+    fileutils (0.7)
+      rmagick (>= 2.13.1)
+    json (1.8.1)
+    rake (10.1.1)
+    rmagick (2.13.2)
+    uglifier (2.5.0)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  emoji-js!
+  rake
