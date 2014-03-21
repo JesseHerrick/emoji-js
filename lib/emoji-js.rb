@@ -21,7 +21,7 @@ module EmojiJS
       @image_path = "/graphics/" if @image_path.empty?
 
       # coffee_grounds = modified coffescript
-      @coffee_grounds = replace_in_file("#{@coffee_path/emoji.coffee}", %q{Emoji.image_path = "/graphics/" # customize to your liking}, "Emoji.image_path = \"#{@image_path}\"")
+      @coffee_grounds = replace_in_file("#{@coffee_path}/emoji.coffee", %q{Emoji.image_path = "/graphics/" # customize to your liking}, "Emoji.image_path = \"#{@image_path}\"")
 
       @generated_js = CoffeeScript.compile(coffee_grounds)
       @ugly_js = uglify @generated_js
