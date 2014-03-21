@@ -15,8 +15,13 @@ module EmojiJS
     def coffeescript
       @coffee_path = "#{@vendor_path}/coffee"
 
+      # get image path (we have to do it here because of coffeescript generation)
+      print 'Emoji graphics path: (default: "graphics/") '
+      @emoji_path = gets.chomp
+      @emoji_path = "/graphics/" if @emoji_path.empty?
+
       # coffee_grounds = modified coffescript
-      @coffee_grounds = replace_in_file("#{@coffee_path}/emoji.coffee", %q{Emoji.image_path = "/graphics/" # customize to your liking}, "Emoji.image_path = \"#{@image_path}\"")
+      @coffee_grounds = replace_in_file("#{@coffee_path}/emoji.coffee", %q{Emoji.image_path = "/graphics/" # customize to your liking}, "Emoji.image_path = \"#{@emoji_path}\"")
 
       @generated_js = CoffeeScript.compile(@coffee_grounds)
       @ugly_js = uglify @generated_js
@@ -30,7 +35,7 @@ module EmojiJS
       # write emoji.min.js
       FileUtils.mkdir(js_dir) unless Dir.exists? js_dir
       FileUtils.cd(js_dir)
-      write_to_file "emoji.min.js", @uglify
+      write_to_file "emoji.min.js", @ugly_js
       FileUtils.cd("../")
     end
 
@@ -41,14 +46,8 @@ module EmojiJS
 
     # copy emoji images to image path
     def emoji_images
-      # get image path
-      print 'Emoji graphics path: (default: "graphics/") '
-      @emoji_path = gets.chomp
-      @emoji_path = "/graphics/" if @emoji_path.empty?
-
       @emoji_path = validate_image_path(@emoji_path)
       FileUtils.mkdir(@emoji_path) unless Dir.exists? @emoji_path
-
       @emojis = Dir.glob("#{@vendor_path}/graphics/*").map(&File.method(:realpath))
 
       FileUtils.cp(@emojis, @emoji_path)
