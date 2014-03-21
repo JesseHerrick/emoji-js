@@ -16,7 +16,7 @@ module EmojiJS
       @coffee_path = "#{@vendor_path}/coffee"
 
       # get image path
-      puts 'Emoji image path: (default: "/graphics/") '
+      print 'Emoji image path: (default: "/graphics/") '
       @image_path = gets.chomp
       @image_path = "/graphics/" if @image_path.empty?
 
@@ -27,7 +27,7 @@ module EmojiJS
       @ugly_js = uglify @generated_js
 
       # get js dir
-      puts %q{Your project's JavaScript directory: (default: "js/") }
+      print %q{Your project's JavaScript directory: (default: "js/") }
       js_dir = gets.chomp
       js_dir = "js" if js_dir.empty?
 

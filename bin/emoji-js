@@ -2,9 +2,9 @@
 
 require "emoji-js"
 
-trap("SIGINT") { abort "INTERRUPTED: Generation of emoji.js files not complete." }
+trap("SIGINT") { abort "\nINTERRUPTED: Generation of emoji.js files not complete." }
 
-puts "Project path: (default: current directory) "
+print "Project path: (default: current directory) "
 project_path = gets.chomp
 project_path = Dir.pwd if project_path.empty?
 
