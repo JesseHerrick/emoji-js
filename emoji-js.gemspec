@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'coffee-script'
   s.add_runtime_dependency 'colorize'
-  s.add_runtime_dependency 'fileutils'
   s.add_runtime_dependency 'uglifier'
 
   s.add_development_dependency 'bundler'
