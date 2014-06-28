@@ -19,7 +19,7 @@ module EmojiJS
       # get image path (we have to do it here because of coffeescript generation)
       print 'Emoji graphics path: (default: "graphics/") '
       @emoji_path = gets.chomp
-      @emoji_path = "/graphics/" if @emoji_path.empty?
+      @emoji_path = "/graphics" if @emoji_path.empty?
 
       # coffee_grounds = modified coffescript
       @coffee_grounds = replace_in_file("#{@coffee_path}/emoji.coffee", %q{Emoji.image_path = "/graphics/" # customize to your liking}, "Emoji.image_path = \"#{@emoji_path}\"")

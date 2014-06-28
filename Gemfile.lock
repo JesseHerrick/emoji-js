@@ -3,8 +3,7 @@ PATH
   specs:
     emoji-js (0.1.0)
       coffee-script
-      colorizer
-      fileutils
+      colorize
       uglifier
 
 GEM
@@ -14,14 +13,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    colorizer (0.0.2)
-    execjs (2.0.2)
-    fileutils (0.7)
-      rmagick (>= 2.13.1)
+    colorize (0.7.3)
+    execjs (2.2.1)
     json (1.8.1)
     rake (10.1.1)
-    rmagick (2.13.2)
-    uglifier (2.5.0)
+    uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
 

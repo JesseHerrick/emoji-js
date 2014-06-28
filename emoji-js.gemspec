@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'emoji-js'
-  s.version     = '0.1.0'
+  s.version     = '0.2.0'
   s.licenses    = ['MIT']
   s.summary     = "Emojify your website like GitHub and Campfire! :thumbsup:"
   s.description = s.summary
