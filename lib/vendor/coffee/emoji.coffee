@@ -12,10 +12,11 @@ Emoji.image_path = "/graphics/" # customize to your liking
 Emoji.image_path = "#{Emoji.image_path}/" unless Emoji.image_path[Emoji.image_path - 1] == "/"
 
 # load emojis
-loadEmoji = () ->
-	for emoji in Emoji.names
-		do ->
-		name = ":#{emoji}:"
-		document.body.innerHTML = document.body.innerHTML.replace(name, "<img src='#{Emoji.image_path + Emoji.name_to_path[emoji]}' alt='#{name}' class='emoji' height='20' width='20' align='absmiddle'>")
+loadEmoji = ->
+  for emoji in Emoji.names
+    do ->
+    name = ":#{emoji}:"
+    new_html = "<img src='#{Emoji.image_path + Emoji.name_to_path[emoji]}' alt='#{name}' class='emoji' height='20' width='20' align='absmiddle'>"
+    document.body.innerHTML = document.body.innerHTML.replace(name, new_html)
 
 window.onload = loadEmoji()
